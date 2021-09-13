@@ -1,22 +1,28 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {FONTS} from '../constants';
+import AppScreen from '../components/AppScreen';
+import AppCard from '../components/AppCard';
+
 class BookListingScreen extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>Book Listing Screen</Text>
-      </View>
+      <AppScreen style={styles.screen}>
+        <AppCard />
+        <AppCard />
+        <AppCard />
+      </AppScreen>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    marginTop: 150,
+  screen: {
+    marginTop: 20,
+    marginHorizontal: 20,
   },
   title: {
-    ...FONTS.largeTitle,
+    ...FONTS.h1,
   },
 });
 export default BookListingScreen;
