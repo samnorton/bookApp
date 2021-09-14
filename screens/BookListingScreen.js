@@ -6,13 +6,7 @@ import AppCard from '../components/AppCard';
 
 class BookListingScreen extends Component {
   render() {
-    return (
-      <AppScreen style={styles.screen}>
-        <AppCard />
-        <AppCard />
-        <AppCard />
-      </AppScreen>
-    );
+    return <AppScreen style={styles.screen}></AppScreen>;
   }
 }
 

@@ -14,8 +14,8 @@ class AppCard extends Component {
           style={styles.bookCover}
         />
         <View style={styles.textContainer}>
-          <Text style={styles.title}>The Big Black Wolf</Text>
-          <Text style={styles.author}>By Emily Stance Fom</Text>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.author}>By {author_name}</Text>
         </View>
         <Image source={icons.book} style={styles.bookIcon} />
       </View>
