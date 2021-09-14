@@ -25,7 +25,7 @@ class StackNavigation extends Component {
             name="BookDetailScreen"
             component={BookDetailScreen}
             options={{
-              headerTitle: '',
+              headerShown: false,
               headerLeft: ({onPress, focused}) => (
                 <TouchableOpacity onPress={onPress}>
                   <Image

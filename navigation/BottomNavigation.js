@@ -82,6 +82,7 @@ class BottomNavigation extends Component {
           name="Book Search"
           component={BookSearchScreen}
           options={{
+            headerShown: false,
             tabBarIcon: ({focused}) => (
               <Image
                 source={icons.search}
