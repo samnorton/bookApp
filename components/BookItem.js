@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {TouchableOpacity} from 'react-native';
+import AppCard from '../components/AppCard';
 
-class BookItem extends Component {
+export default class BookItem extends Component {
   render() {
     return (
-      <View>
-        <Text>Book Item</Text>
-      </View>
+      <TouchableOpacity
+        onPress={() => this.props.onPressHandler(this.props.item)}>
+        <AppCard item={this.props.item} />
+      </TouchableOpacity>
     );
   }
 }
-
-export default BookItem;
