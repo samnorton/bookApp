@@ -5,6 +5,13 @@ import {COLORS, FONTS} from '../constants';
 
 class BookDetailScreen extends Component {
   render() {
+    const {
+      title,
+      author_name,
+      isbn = [],
+      oclc = [],
+      lccn = [],
+    } = this.props.route.params.item;
     return (
       <AppScreen>
         <View style={styles.cover}>
@@ -16,23 +23,23 @@ class BookDetailScreen extends Component {
           />
         </View>
         <View style={styles.details}>
-          <Text style={styles.title}>The Bowling Gowl of Hamen</Text>
-          <Text style={styles.author}>By Chris Rapanzel</Text>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.author}>By {author_name}</Text>
         </View>
         <View style={styles.otherDetails}>
           <View style={styles.divider}>
             <Text style={styles.subTitle}>ISBN</Text>
-            <Text style={styles.value}>233445555</Text>
+            <Text style={styles.value}>{isbn[0]}</Text>
           </View>
 
           <View style={styles.divider}>
             <Text style={styles.subTitle}>OCLC</Text>
-            <Text style={styles.value}>233445555</Text>
+            <Text style={styles.value}>{oclc[0]}</Text>
           </View>
 
           <View style={styles.divider}>
             <Text style={styles.subTitle}>LCCN</Text>
-            <Text style={styles.value}>233445555</Text>
+            <Text style={styles.value}>{lccn[0]}</Text>
           </View>
         </View>
       </AppScreen>

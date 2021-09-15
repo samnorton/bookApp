@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
+import {TouchableOpacity, Image} from 'react-native';
 import {BookDetailScreen} from '../screens';
 import BottomNavigation from './BottomNavigation';
-import {COLORS} from '../constants';
+import {COLORS, icons} from '../constants';
 
 const Stack = createStackNavigator();
 
@@ -25,7 +26,7 @@ class StackNavigation extends Component {
             name="BookDetailScreen"
             component={BookDetailScreen}
             options={{
-              headerShown: false,
+              headerTitle: '',
               headerLeft: ({onPress, focused}) => (
                 <TouchableOpacity onPress={onPress}>
                   <Image

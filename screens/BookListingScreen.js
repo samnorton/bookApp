@@ -1,10 +1,17 @@
 import React, {Component} from 'react';
-import {FlatList, Text, StyleSheet} from 'react-native';
-import {fetchBooks} from '../redux/actions/booksActions';
+import {
+  FlatList,
+  Text,
+  StyleSheet,
+  View,
+  ActivityIndicator,
+} from 'react-native';
+import {fetchBooks} from '../redux/actions/bookAction';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {COLORS, FONTS} from '../constants';
 import AppScreen from '../components/AppScreen';
+import BookItem from '../components/BookItem';
 
 class BookListingScreen extends Component {
   componentDidMount() {
@@ -16,29 +23,29 @@ class BookListingScreen extends Component {
   };
 
   render() {
-    _keyExtractor = item => item.cover_i;
+    let content = (
+      <FlatList
+        style={{flex: 1}}
+        data={this.props.randomBooks.books}
+        keyExtractor={item => item.cover_i}
+        renderItem={({item} = this.props.randomBooks.books) => {
+          return (
+            <BookItem onPressHandler={this.onPressHandler(item)} item={item} />
+          );
+        }}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+      />
+    );
 
     if (this.props.randomBooks.isFetching) {
       content = <ActivityIndicator size="large" />;
     }
+
     return (
       <AppScreen style={styles.screen}>
         <Text style={styles.title}>Book App</Text>
-        <FlatList
-          style={{flex: 1}}
-          data={this.props.books}
-          keyExtractor={this._keyExtractor}
-          renderItem={({item} = this.props.books) => {
-            return (
-              <BookItem
-                onPressHandler={() => this.props.onPressHandler(item)}
-                item={item}
-              />
-            );
-          }}
-          showsVerticalScrollIndicator={false}
-          showsHorizontalScrollIndicator={false}
-        />
+        {content}
       </AppScreen>
     );
   }

@@ -4,7 +4,7 @@ import {COLORS, FONTS, icons} from '../constants';
 
 class AppCard extends Component {
   render() {
-    const {title, author_name} = this.props;
+    const {title, author_name} = this.props.item;
     return (
       <View style={styles.cardContainer}>
         <Image
@@ -17,7 +17,6 @@ class AppCard extends Component {
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.author}>By {author_name}</Text>
         </View>
-        <Image source={icons.book} style={styles.bookIcon} />
       </View>
     );
   }
@@ -26,7 +25,7 @@ class AppCard extends Component {
 const styles = StyleSheet.create({
   cardContainer: {
     backgroundColor: '#fff',
-    marginBottom: 20,
+    marginTop: 20,
     flexDirection: 'row',
     paddingRight: 30,
     shadowColor: '#dedede',
@@ -47,8 +46,9 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   title: {
-    ...FONTS.h4,
+    ...FONTS.h5,
     color: COLORS.primary,
+    paddingRight: 10,
   },
   author: {
     ...FONTS.sub,

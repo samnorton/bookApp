@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {TouchableOpacity} from 'react-native';
-import AppCard from '../components/AppCard';
+import AppCard from './AppCard';
 
-export default class BookItem extends Component {
+class BookItem extends Component {
   render() {
     return (
       <TouchableOpacity
@@ -12,3 +12,5 @@ export default class BookItem extends Component {
     );
   }
 }
+
+export default BookItem;
